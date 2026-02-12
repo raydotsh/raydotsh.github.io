@@ -57,7 +57,7 @@ export default function Home() {
         <div className="projects-grid">
           <a href="/blog" className="project-card">
             <h3>blogs</h3>
-            <p>i mostly try to walk someone towards my my intuition, approach and random thoughts through my blogs. this link takes you to my medium page.</p>
+            <p>i mostly try to walk someone towards my intuition, approach and random thoughts through my blogs. this link takes you to my medium page.</p>
             <span className="card-footer">my blogs</span>
           </a>
 
