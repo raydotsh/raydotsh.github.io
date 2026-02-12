@@ -60,7 +60,7 @@ export default function WhoAmI() {
 
           <div className="timeline-year highlight">
             <span>Currently</span>
-            <p>stacking XP — automation, systems, big builds loading...</p>
+            <p>stacking xp</p>
           </div>
         </div>
       </section>
