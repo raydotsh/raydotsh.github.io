@@ -1,0 +1,27 @@
+:root {
+  --dark-navy: #000000;
+  --navy: #000000;
+  --light-navy: #0d0d0d;
+  --lightest-navy: #1a1a1a;
+  --navy-shadow: rgba(0, 0, 0, 0.85);
+  --slate: #a0a0a0;
+  --light-slate: #cccccc;
+  --lightest-slate: #f0f0f0;
+  --white: #ffffff;
+  --blue-bright: #38bdf8;
+  --blue-tint: rgba(56, 189, 248, 0.1);
+  --yellow: #ffd166;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+    url('/assets/comic_bg.jpg');
+  background-repeat: repeat;
+  background-size: 550px auto;
+  background-attachment: fixed;
+  background-position: center top;
+}
