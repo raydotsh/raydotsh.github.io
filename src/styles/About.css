@@ -158,9 +158,11 @@
 }
 
 .stats strong {
-  font-family: var(--font-display);
+  font-family: var(--font-numbers);
   font-size: clamp(26px, 4vw, 36px);
-  font-weight: 800;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.03em;
 }
 
 .stats span {

@@ -37,20 +37,22 @@
 }
 
 .metric-trend {
+  font-family: var(--font-numbers);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   color: #16a34a;
   background: rgba(22, 163, 74, 0.1);
   padding: 4px 10px;
   border-radius: 99px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 .metric-value {
-  font-family: var(--font-display);
+  font-family: var(--font-numbers);
   font-size: clamp(28px, 5vw, 42px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 6px;
   color: var(--ink);

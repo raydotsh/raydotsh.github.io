@@ -8,10 +8,26 @@
   --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: "Syne", sans-serif;
   --font-serif: Georgia, "Libre Baskerville", serif;
+  --font-numbers: "Space Grotesk", "Outfit", "Plus Jakarta Sans", sans-serif;
   font-family: var(--font-body);
   color: var(--ink);
   background-color: var(--paper);
   font-synthesis: none;
+}
+
+.metric-value,
+.stat-num,
+.stats strong,
+.project-number,
+.metric strong,
+.portrait-sticker,
+.metric-trend,
+.proof-tag,
+.num-font {
+  font-family: var(--font-numbers);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: -0.03em;
 }
 
 [data-theme="dark"] {

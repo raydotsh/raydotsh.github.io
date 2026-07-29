@@ -71,8 +71,10 @@
   position: absolute;
   left: 18px;
   top: 15px;
+  font-family: var(--font-numbers);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
   background: var(--paper);
   color: var(--ink);
   padding: 4px 10px;
@@ -122,9 +124,11 @@
 }
 
 .metric strong {
-  font-family: var(--font-display);
+  font-family: var(--font-numbers);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.03em;
 }
 
 .metric span {
