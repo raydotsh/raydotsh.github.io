@@ -21,7 +21,7 @@
 }
 
 .services-intro h2 {
-  font-size: clamp(3rem, 5.5vw, 6rem);
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
   letter-spacing: -0.06em;
   margin-top: 20px;
   color: #f4f0e8;
@@ -31,7 +31,7 @@
   line-height: 1.65;
   max-width: 450px;
   color: #b8b5ae;
-  margin: 35px 0;
+  margin: 30px 0;
   font-size: 16px;
 }
 
@@ -45,7 +45,7 @@
   grid-template-columns: 45px 1fr 30px;
   gap: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 42px 0;
+  padding: 36px 0;
   color: #f4f0e8;
 }
 
@@ -65,12 +65,12 @@
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .service-item h3 {
-  font-size: 26px;
+  font-size: clamp(20px, 3vw, 26px);
   letter-spacing: -0.04em;
   color: #ffffff;
   line-height: 1.2;
@@ -88,7 +88,7 @@
   color: #aaa7a1;
   line-height: 1.65;
   font-size: 15px;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 
 .service-item > i {
@@ -106,13 +106,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .tags b {
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 99px;
-  padding: 7px 14px;
+  padding: 6px 12px;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -123,7 +123,7 @@
 @media (max-width: 900px) {
   .services-container {
     grid-template-columns: 1fr;
-    gap: 55px;
+    gap: 45px;
   }
 
   .services-intro {
@@ -132,11 +132,17 @@
 }
 
 @media (max-width: 560px) {
-  .service-item {
-    grid-template-columns: 30px 1fr 20px;
+  .services {
+    padding: 60px 5vw;
   }
 
-  .service-item h3 {
-    font-size: 22px;
+  .service-item {
+    grid-template-columns: 28px 1fr;
+    gap: 14px;
+    padding: 28px 0;
+  }
+
+  .service-item > i {
+    display: none;
   }
 }

@@ -29,10 +29,11 @@
 }
 
 .contact h2 {
-  font-size: clamp(3.5rem, 7vw, 7.8rem);
+  font-size: clamp(2.4rem, 7vw, 7.8rem);
   letter-spacing: -0.065em;
-  margin: 32px 0 45px;
+  margin: 28px 0 40px;
   color: #191816;
+  word-break: break-word;
 }
 
 .contact-action-box {
@@ -121,14 +122,30 @@
 }
 
 @media (max-width: 768px) {
+  .contact-inner {
+    padding: 70px 20px;
+  }
+
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 22px;
+    gap: 20px;
   }
 
   .footer-links {
     flex-wrap: wrap;
     gap: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-action-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pill-light, .copy-pill-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

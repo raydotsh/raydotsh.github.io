@@ -4,7 +4,7 @@
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 28px;
 }
 
@@ -41,4 +41,15 @@
   font-weight: 700;
   color: var(--ink);
   line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 16px;
+  }
+
+  .book-title {
+    font-size: 12px;
+  }
 }

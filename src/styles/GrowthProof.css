@@ -4,20 +4,20 @@
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  margin-bottom: 75px;
+  margin-bottom: 65px;
 }
 
 .growth-metric-card {
   background: rgba(0, 0, 0, 0.02);
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 30px 26px;
+  padding: 26px 22px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 190px;
+  min-height: 180px;
 }
 
 [data-theme="dark"] .growth-metric-card {
@@ -48,7 +48,7 @@
 
 .metric-value {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: clamp(32px, 5vw, 42px);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -70,11 +70,11 @@
 }
 
 .proof-heading {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .proof-heading h3 {
-  font-size: 26px;
+  font-size: clamp(20px, 3.5vw, 26px);
   letter-spacing: -0.04em;
   margin-bottom: 8px;
 }
@@ -87,8 +87,8 @@
 
 .proof-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
 }
 
 .proof-card {
@@ -101,7 +101,7 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  height: 260px;
+  height: 240px;
   background: var(--ink);
   cursor: pointer;
 }
@@ -163,7 +163,7 @@
 }
 
 .proof-card-info h4 {
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: -0.03em;
   margin-bottom: 6px;
 }
@@ -184,7 +184,7 @@
   z-index: 99999;
   display: grid;
   place-items: center;
-  padding: 24px;
+  padding: 20px;
   cursor: pointer;
   animation: fadeInModal 0.2s ease-out;
 }
@@ -196,8 +196,8 @@
 
 .proof-modal-content {
   position: relative;
-  max-width: 1050px;
-  width: 92vw;
+  max-width: 1000px;
+  width: 94vw;
   background: var(--paper);
   color: var(--ink);
   border-radius: 20px;
@@ -208,14 +208,14 @@
 
 .proof-modal-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   background: var(--ink);
   color: var(--paper);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   z-index: 10;
@@ -234,13 +234,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  min-height: 380px;
+  padding: 16px;
+  min-height: 280px;
 }
 
 .proof-modal-img {
   max-width: 100%;
-  max-height: 75vh;
+  max-height: 72vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -250,33 +250,55 @@
 }
 
 .proof-modal-caption {
-  padding: 22px 28px;
+  padding: 20px 24px;
 }
 
 .proof-modal-caption h4 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 6px;
   color: var(--ink);
 }
 
 .proof-modal-caption p {
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.8;
   margin: 0;
   color: var(--ink);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .growth-metric-card {
+    padding: 18px 16px;
+    min-height: 150px;
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+
   .proof-cards-grid {
     grid-template-columns: 1fr;
   }
 
+  .proof-card-image-wrapper {
+    height: 200px;
+  }
+
   .proof-modal-content {
-    width: 96vw;
+    width: 98vw;
   }
 
   .proof-modal-image-container {
-    padding: 10px;
-    min-height: 250px;
+    padding: 8px;
+    min-height: 220px;
+  }
+
+  .proof-modal-caption {
+    padding: 16px 20px;
   }
 }

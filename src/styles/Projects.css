@@ -54,7 +54,7 @@
 .project-code-art span {
   display: block;
   font-family: var(--font-display);
-  font-size: 38px;
+  font-size: clamp(28px, 4vw, 38px);
   font-weight: 800;
   letter-spacing: -0.05em;
   margin-bottom: 8px;
@@ -83,12 +83,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 20px 3px 35px;
+  padding: 20px 3px 30px;
   gap: 16px;
 }
 
 .project-meta h3 {
-  font-size: 24px;
+  font-size: 22px;
   letter-spacing: -0.04em;
   margin-bottom: 6px;
 }
@@ -123,7 +123,7 @@
 
 .metric strong {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -149,6 +149,7 @@
 @media (max-width: 900px) {
   .work-grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 
   .project-large {
@@ -156,6 +157,27 @@
   }
 
   .project-large .project-art {
-    height: 420px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-art {
+    min-height: 240px;
+  }
+
+  .project-large .project-art {
+    height: 280px;
+  }
+
+  .project-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 2px 24px;
+  }
+
+  .metric {
+    text-align: left;
   }
 }

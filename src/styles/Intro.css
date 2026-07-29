@@ -40,10 +40,12 @@
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 8.5vw, 8.5rem);
+  font-size: clamp(2.8rem, 8.5vw, 8.5rem);
   letter-spacing: -0.065em;
-  margin: 28px 0 34px;
+  margin: 24px 0 30px;
   color: var(--ink);
+  line-height: 0.94;
+  word-break: break-word;
 }
 
 .hero .script-accent {
@@ -131,7 +133,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding-left: 8vw;
+    padding: 100px 6vw 70px;
   }
 
   .hero-proof {
@@ -145,19 +147,19 @@
 
 @media (max-width: 560px) {
   .hero {
-    min-height: 860px;
-    padding-top: 100px;
+    min-height: 100svh;
+    padding: 95px 5vw 60px;
     align-items: flex-start;
   }
 
   .hero h1 {
-    font-size: 16vw;
-    margin-top: 45px;
+    font-size: clamp(2.4rem, 13vw, 4.5rem);
+    margin: 20px 0 24px;
   }
 
   .hero-actions {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
   }
 }
