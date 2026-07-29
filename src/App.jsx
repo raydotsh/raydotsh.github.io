@@ -22,12 +22,20 @@ function App() {
   const [gameActive, setGameActive] = useState(false);
   const [showGameInfo, setShowGameInfo] = useState(false);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("portfolio-theme") || "dark";
+    try {
+      return localStorage.getItem("portfolio-theme") || "dark";
+    } catch (e) {
+      return "dark";
+    }
   });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("portfolio-theme", theme);
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch (e) {
+      // Ignore storage restrictions on mobile private browsing
+    }
   }, [theme]);
 
   const toggleTheme = () => {

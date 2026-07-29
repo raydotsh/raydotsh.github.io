@@ -21,13 +21,20 @@ const HeroCanvas = () => {
     );
     camera.position.z = 9;
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: true,
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(section.clientWidth, section.clientHeight);
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        failIfMajorPerformanceCaveat: false,
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(section.clientWidth, section.clientHeight);
+    } catch (err) {
+      console.warn("HeroCanvas WebGL renderer unavailable:", err);
+      return;
+    }
 
     const isMobile = window.innerWidth < 800;
     const group = new THREE.Group();
@@ -119,14 +126,16 @@ const HeroCanvas = () => {
         ring.rotation.z = time * 0.08;
       }
 
-      renderer.render(scene, camera);
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
       reqId = requestAnimationFrame(animate);
     };
 
     animate();
 
     const handleResize = () => {
-      if (!section) return;
+      if (!section || !renderer || !camera) return;
       camera.aspect = section.clientWidth / section.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(section.clientWidth, section.clientHeight);
@@ -146,7 +155,11 @@ const HeroCanvas = () => {
       cancelAnimationFrame(reqId);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
-      renderer.dispose();
+      if (renderer) {
+        try {
+          renderer.dispose();
+        } catch (e) {}
+      }
     };
   }, []);
 
