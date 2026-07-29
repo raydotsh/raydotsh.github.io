@@ -23,9 +23,9 @@ function App() {
   const [showGameInfo, setShowGameInfo] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem("portfolio-theme") || "dark";
+      return localStorage.getItem("portfolio-theme") || "light";
     } catch (e) {
-      return "dark";
+      return "light";
     }
   });
 
