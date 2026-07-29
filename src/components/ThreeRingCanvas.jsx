@@ -20,6 +20,7 @@ const ThreeRingCanvas = () => {
       camera.position.set(0, 0, 10);
 
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, failIfMajorPerformanceCaveat: false });
+      renderer.setClearColor(0x000000, 0);
       renderer.setSize(width, height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       container.appendChild(renderer.domElement);

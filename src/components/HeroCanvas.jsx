@@ -29,6 +29,7 @@ const HeroCanvas = () => {
         antialias: true,
         failIfMajorPerformanceCaveat: false,
       });
+      renderer.setClearColor(0x000000, 0);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(section.clientWidth, section.clientHeight);
     } catch (err) {

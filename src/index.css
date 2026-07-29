@@ -18,8 +18,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--body-bg);
-  color: var(--lightest-slate);
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
 code {
