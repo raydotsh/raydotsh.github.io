@@ -23,7 +23,7 @@ function App() {
   const [showGameInfo, setShowGameInfo] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem("portfolio-theme") || "light";
+      return localStorage.getItem("portfolio-theme-v2") || "light";
     } catch (e) {
       return "light";
     }
@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     try {
-      localStorage.setItem("portfolio-theme", theme);
+      localStorage.setItem("portfolio-theme-v2", theme);
     } catch (e) {
       // Ignore storage restrictions on mobile private browsing
     }
