@@ -4,7 +4,6 @@ import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 const NavBar = ({ theme, toggleTheme }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -108,16 +107,6 @@ const NavBar = ({ theme, toggleTheme }) => {
           </nav>
 
           <div className="mobile-nav-footer">
-            <a
-              className="mobile-cta-btn"
-              href="mailto:rehanarahman004@gmail.com"
-              onClick={closeMenu}
-            >
-              <EmailOutlinedIcon sx={{ fontSize: 18 }} />
-              <span>Let’s work together</span>
-              <span>↗</span>
-            </a>
-            
             <div className="mobile-nav-meta">
               <span>Bengaluru, India</span>
               <span>@raydotsh</span>
