@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        var t = localStorage.getItem("portfolio-theme-v2") || "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    </script>
     <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/magritte.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f8f9fa" />
+    <meta name="theme-color" content="#f4f0e8" />
     <meta name="description" content="Rehana - Freelance Content Strategist & Copywriter" />
     <title>Rehana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
