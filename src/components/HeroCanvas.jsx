@@ -38,11 +38,14 @@ const HeroCanvas = () => {
     }
 
     const isMobile = window.innerWidth < 800;
+    const isSmallMobile = window.innerWidth < 560;
     const group = new THREE.Group();
     group.position.x = isMobile ? 0 : 3.25;
-    group.position.y = isMobile ? -0.8 : 0;
-    if (isMobile) {
-      group.scale.set(0.65, 0.65, 0.65);
+    group.position.y = isSmallMobile ? -1.8 : (isMobile ? -1.2 : 0);
+    if (isSmallMobile) {
+      group.scale.set(0.5, 0.5, 0.5);
+    } else if (isMobile) {
+      group.scale.set(0.62, 0.62, 0.62);
     }
     scene.add(group);
 
@@ -141,10 +144,13 @@ const HeroCanvas = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(section.clientWidth, section.clientHeight);
       const mobile = window.innerWidth < 800;
+      const smallMobile = window.innerWidth < 560;
       group.position.x = mobile ? 0 : 3.25;
-      group.position.y = mobile ? -0.8 : 0;
-      if (mobile) {
-        group.scale.set(0.65, 0.65, 0.65);
+      group.position.y = smallMobile ? -1.8 : (mobile ? -1.2 : 0);
+      if (smallMobile) {
+        group.scale.set(0.5, 0.5, 0.5);
+      } else if (mobile) {
+        group.scale.set(0.62, 0.62, 0.62);
       } else {
         group.scale.set(1, 1, 1);
       }
