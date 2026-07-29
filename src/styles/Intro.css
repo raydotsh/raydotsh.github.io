@@ -33,6 +33,7 @@
   position: relative;
   z-index: 2;
   max-width: 850px;
+  width: 100%;
 }
 
 .hero .eyebrow {
@@ -133,7 +134,7 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding: 100px 6vw 70px;
+    padding: 110px 6vw 70px;
   }
 
   .hero-proof {
@@ -148,18 +149,35 @@
 @media (max-width: 560px) {
   .hero {
     min-height: 100svh;
-    padding: 95px 5vw 60px;
+    padding: 100px 5vw 60px;
     align-items: flex-start;
   }
 
   .hero h1 {
-    font-size: clamp(2.4rem, 13vw, 4.5rem);
-    margin: 20px 0 24px;
+    font-size: clamp(2.2rem, 11vw, 4.2rem);
+    margin: 16px 0 20px;
+  }
+
+  .hero-lede {
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   .hero-actions {
     align-items: stretch;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
+    margin-top: 28px;
+    width: 100%;
+  }
+
+  .hero-actions .pill-dark {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-actions .text-link {
+    justify-content: center;
   }
 }

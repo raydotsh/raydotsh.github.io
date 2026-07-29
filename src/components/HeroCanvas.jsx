@@ -29,9 +29,13 @@ const HeroCanvas = () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(section.clientWidth, section.clientHeight);
 
+    const isMobile = window.innerWidth < 800;
     const group = new THREE.Group();
-    group.position.x = window.innerWidth < 800 ? 1.6 : 3.25;
-    group.position.y = window.innerWidth < 800 ? -2.5 : 0;
+    group.position.x = isMobile ? 0 : 3.25;
+    group.position.y = isMobile ? -0.8 : 0;
+    if (isMobile) {
+      group.scale.set(0.65, 0.65, 0.65);
+    }
     scene.add(group);
 
     const makeIconTexture = (symbol, color) => {
@@ -126,8 +130,14 @@ const HeroCanvas = () => {
       camera.aspect = section.clientWidth / section.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(section.clientWidth, section.clientHeight);
-      group.position.x = window.innerWidth < 800 ? 1.6 : 3.25;
-      group.position.y = window.innerWidth < 800 ? -2.5 : 0;
+      const mobile = window.innerWidth < 800;
+      group.position.x = mobile ? 0 : 3.25;
+      group.position.y = mobile ? -0.8 : 0;
+      if (mobile) {
+        group.scale.set(0.65, 0.65, 0.65);
+      } else {
+        group.scale.set(1, 1, 1);
+      }
     };
 
     window.addEventListener("resize", handleResize);

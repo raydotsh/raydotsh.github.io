@@ -48,7 +48,7 @@
 
 .metric-value {
   font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 42px);
+  font-size: clamp(28px, 5vw, 42px);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -268,17 +268,35 @@
 
 @media (max-width: 560px) {
   .metrics-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .growth-metric-card {
-    padding: 18px 16px;
-    min-height: 150px;
+    padding: 16px 14px;
+    min-height: 140px;
+    border-radius: 12px;
+  }
+
+  .metric-header {
+    margin-bottom: 8px;
+  }
+
+  .metric-trend {
+    font-size: 9px;
+    padding: 3px 6px;
   }
 
   .metric-value {
-    font-size: 28px;
+    font-size: 24px;
+  }
+
+  .metric-label {
+    font-size: 12px;
+  }
+
+  .metric-subtext {
+    font-size: 10px;
   }
 
   .proof-cards-grid {
@@ -286,19 +304,19 @@
   }
 
   .proof-card-image-wrapper {
-    height: 200px;
+    height: 190px;
   }
 
   .proof-modal-content {
-    width: 98vw;
+    width: 96vw;
   }
 
   .proof-modal-image-container {
     padding: 8px;
-    min-height: 220px;
+    min-height: 200px;
   }
 
   .proof-modal-caption {
-    padding: 16px 20px;
+    padding: 14px 18px;
   }
 }

@@ -67,7 +67,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  right: -20px;
+  right: -15px;
   bottom: 35px;
   display: flex;
   flex-direction: column;
@@ -91,13 +91,13 @@
 }
 
 .about-copy h2 {
-  font-size: clamp(2.8rem, 6.4vw, 6.7rem);
+  font-size: clamp(2.4rem, 6.4vw, 6.7rem);
   letter-spacing: -0.06em;
   margin: 20px 0 25px;
 }
 
 .about-lede {
-  font-size: clamp(17px, 2.5vw, 21px) !important;
+  font-size: clamp(16px, 2.5vw, 21px) !important;
   color: var(--ink) !important;
   font-weight: 500;
   line-height: 1.6;
@@ -159,7 +159,7 @@
 
 .stats strong {
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: clamp(26px, 4vw, 36px);
   font-weight: 800;
 }
 
@@ -178,26 +178,37 @@
   }
 
   .portrait {
-    max-width: 500px;
+    max-width: 480px;
     margin: 0 auto;
   }
 }
 
 @media (max-width: 560px) {
   .portrait-scene {
-    height: 420px;
+    height: 380px;
+  }
+
+  .portrait-img {
+    width: 210px;
+    height: 280px;
   }
 
   .portrait-sticker {
-    right: 10px;
-    bottom: 20px;
-    width: 100px;
-    height: 100px;
-    font-size: 22px;
+    right: 5px;
+    bottom: 15px;
+    width: 90px;
+    height: 90px;
+    font-size: 20px;
   }
 
   .stats {
-    justify-content: space-between;
-    gap: 16px 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    text-align: center;
+  }
+
+  .stats strong {
+    font-size: 22px;
   }
 }
