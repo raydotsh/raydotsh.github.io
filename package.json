@@ -22,7 +22,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.14.1",
     "react-transition-group": "^4.4.5",
-    "react-type-animation": "^3.2.0"
+    "react-type-animation": "^3.2.0",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

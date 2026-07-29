@@ -16,8 +16,9 @@ const SPAWN_INTERVAL = 22;
 const CELL_COUNT     = 5;
 
 function drawBlob(ctx, x, y, frame, onGround, isIdle) {
-  const B  = "#ccd6f6";
-  const D  = "#8892b0";
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  const B  = isLight ? "#1e293b" : "#ccd6f6";
+  const D  = isLight ? "#475569" : "#8892b0";
   const EY = "#0a192f";
   const SH = "#38bdf8";
   const CK = "#38bdf8";
@@ -57,7 +58,7 @@ function drawBlob(ctx, x, y, frame, onGround, isIdle) {
   ctx.fillRect(10, 4 + bob, 2, 2);
 
   ctx.fillStyle = CK;
-  ctx.globalAlpha = 0.18;
+  ctx.globalAlpha = isLight ? 0.4 : 0.18;
   ctx.fillRect(1,  8 + bob, 2, 1);
   ctx.fillRect(13, 8 + bob, 2, 1);
   ctx.globalAlpha = 1;
@@ -72,18 +73,19 @@ function drawBlob(ctx, x, y, frame, onGround, isIdle) {
 
 function drawBlock(ctx, bx, by, bw, alpha = 1) {
   if (alpha <= 0) return;
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
   ctx.save();
   ctx.globalAlpha = alpha;
-  ctx.fillStyle = "rgba(0,0,0,0.18)";
+  ctx.fillStyle = isLight ? "rgba(0,0,0,0.12)" : "rgba(0,0,0,0.18)";
   ctx.fillRect(bx + 2, by + BLOCK_H, bw - 2, 3);
-  ctx.fillStyle = "#112240";
+  ctx.fillStyle = isLight ? "#64748b" : "#112240";
   ctx.fillRect(bx, by, bw, BLOCK_H);
-  ctx.fillStyle = "rgba(100,255,218,0.6)";
+  ctx.fillStyle = isLight ? "#0284c7" : "rgba(100,255,218,0.6)";
   ctx.fillRect(bx, by, bw, 2);
-  ctx.fillStyle = "rgba(100,255,218,0.09)";
+  ctx.fillStyle = isLight ? "rgba(2, 132, 199, 0.25)" : "rgba(100,255,218,0.09)";
   for (let px = bx + 6; px < bx + bw - 3; px += 10)
     ctx.fillRect(px, by + 3, 2, 2);
-  ctx.fillStyle = "rgba(0,0,0,0.22)";
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
   ctx.fillRect(bx, by + BLOCK_H - 1, bw, 1);
   ctx.restore();
 }

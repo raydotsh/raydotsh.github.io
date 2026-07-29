@@ -1,201 +1,44 @@
-#books {
-  padding: 40px 0;
-  margin: auto;
-  max-width: 1000px;
-}
-
-.books-description {
-  font-family: "NTR", sans-serif;
-  color: var(--slate);
-  font-size: 20px;
-  margin-top: -20px;
-  margin-bottom: 40px;
-  max-width: 600px;
-}
-
-.books-container {
-  max-width: 1000px;
-  margin: 0 auto;
+.books {
+  border-top: 1px solid var(--line);
 }
 
 .books-grid {
-  display: block;
-  column-count: 3;
-  column-gap: 20px;
-  margin-top: 40px;
-}
-
-.books-grid > div {
-  break-inside: avoid;
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 28px;
 }
 
 .book-card {
-  position: relative;
-  border-radius: 4px;
-  cursor: pointer;
-  background: transparent;
-  perspective: 1500px;
-}
-
-.book-container {
-  width: 100%;
-  height: 100%;
-}
-
-.book {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-  transform: rotateY(0deg);
-}
-
-.book-card:hover .book {
-  transform: rotateY(-20deg) rotateX(2deg);
-}
-
-.book-cover {
-  position: relative;
-  width: 100%;
-  z-index: 5;
-  transform-style: preserve-3d;
-  transform-origin: left center;
-  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  border-radius: 2px 4px 4px 2px;
-}
-
-.book-card:hover .book-cover {
-  transform: rotateY(-10deg);
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
-}
-
-.book-cover-front,
-.book-cover-back {
-  backface-visibility: hidden;
-}
-
-.book-cover-front {
-  position: relative;
-  width: 100%;
-  z-index: 2;
-  border-radius: 2px 4px 4px 2px;
-  overflow: hidden;
-}
-
-.book-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.book-cover-back {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #f5f3ef;
-  border-radius: 4px 2px 2px 4px;
-  transform: rotateY(180deg);
-  z-index: 1;
-  box-shadow: inset 4px 0 10px rgba(0,0,0,0.1);
-}
-
-.book-pages {
-  position: absolute;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  right: 4px;
-  background: #fcfbf9;
-  border-radius: 0 4px 4px 0;
-  transform: translateZ(-2px);
-  z-index: 2;
-  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
-  transform-style: preserve-3d;
-}
-
-.book-pages::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: -1px;
-  width: 16px;
-  background: #fcfbf9;
-  transform: rotateY(90deg);
-  transform-origin: right center;
-  background-image: repeating-linear-gradient(
-    to right,
-    #d4d4d4 0,
-    #fcfbf9 1px,
-    #fcfbf9 2px,
-    #d4d4d4 3px
-  );
-  border-radius: 0 2px 2px 0;
-}
-
-.book-spine {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 18px;
-  background: #2a2a2a;
-  transform: rotateY(-90deg);
-  transform-origin: left center;
-  z-index: 3;
-}
-
-.book-back {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #111;
-  border-radius: 2px 4px 4px 2px;
-  transform: translateZ(-18px);
-  z-index: 1;
-  box-shadow: 
-    -5px 5px 20px rgba(0,0,0,0.4),
-    0 0 10px rgba(0,0,0,0.2);
-}
-
-#books .section-header {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
 }
 
-#books .section-header::after {
-  order: 1;
-  flex-grow: 1;
-  width: auto;
+.book-image-wrapper {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: var(--ink);
+  margin-bottom: 14px;
 }
 
-@media (max-width: 768px) {
-  .books-grid {
-    column-count: 2;
-  }
-  #books .section-header {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  .explore-link {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 5px;
-  }
-  #books .section-header::after {
-    display: none;
-  }
+.book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .books-grid {
-    column-count: 1;
-  }
+.book-card:hover .book-cover-img {
+  transform: scale(1.06);
+}
+
+.book-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
 }

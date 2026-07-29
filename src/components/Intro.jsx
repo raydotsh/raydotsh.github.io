@@ -1,59 +1,54 @@
 import React from "react";
 import "../styles/Intro.css";
-import { TypeAnimation } from "react-type-animation";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import CodeIcon from "@mui/icons-material/Code";
-import FadeInSection from "./FadeInSection";
-import AsciiPortrait from "./AsciiPortrait";
+import HeroCanvas from "./HeroCanvas";
 
 const Intro = () => {
   return (
-    <div id="intro">
-      <div className="intro-simulation">
-        <AsciiPortrait />
-      </div>
+    <section className="hero" id="top">
+      <HeroCanvas />
+      <div className="hero-noise"></div>
 
-      <div className="intro-block">
-        <div className="intro-title">
-          {"hi, "}
-          <span className="intro-name">
-            <TypeAnimation
-              sequence={["rehana"]}
-              wrapper="span"
-              cursor={false}
-              repeat={0}
-            />
-          </span>
-          {" here."}
-          <span className="intro-cursor">|</span>
+      <div className="hero-copy reveal visible">
+        <div className="eyebrow">
+          <span className="status-dot"></span> Available for select projects
         </div>
 
-        <div className="intro-badge-row">
-          <span className="tech-tag"><CodeIcon sx={{ fontSize: 16 }} /> DevTools & AI Copywriter</span>
-          <span className="tech-tag">Content Strategist</span>
-          <span className="tech-tag">1M+ Organic Reach</span>
+        <h1>
+          Your brand has<br />
+          <span className="script-accent">something to say.</span>
+        </h1>
+
+        <p className="hero-lede">
+          I turn ideas into social-first stories that build communities, spark conversation, and move the metrics that matter.
+        </p>
+
+        <div className="hero-actions">
+          <a className="pill pill-dark" href="#experience">
+            See my work <span>↓</span>
+          </a>
+          <a className="text-link" href="mailto:rehanarahman004@gmail.com">
+            Let’s work together <span>↗</span>
+          </a>
         </div>
-
-        <FadeInSection>
-          <div className="intro-desc">
-            I help AI, SaaS, and DevTools founders build organic content engines that drive high-intent user acquisition. 
-            I ghostwrite for LinkedIn and X, launch Product Hunt campaigns, and write technical copy with a strict zero-AI-voice standard.
-          </div>
-
-          <div className="intro-cta-group">
-            <a href="mailto:rehanarahman004@gmail.com" className="intro-contact">
-              <EmailRoundedIcon />
-              {" Let's Talk"}
-            </a>
-            <a href="#growth" className="intro-secondary-btn">
-              <TrendingUpIcon />
-              {" View Growth Stats"}
-            </a>
-          </div>
-        </FadeInSection>
       </div>
-    </div>
+
+      <div className="hero-proof reveal visible">
+        <div className="avatar-stack" aria-hidden="true">
+          <span className="avatar avatar-a">RR</span>
+          <span className="avatar avatar-b">1M</span>
+          <span className="avatar avatar-c">8%</span>
+        </div>
+        <p>
+          <strong>Trusted by founders & teams</strong>
+          <br />
+          across AI, SaaS, Web3 & devtools.
+        </p>
+      </div>
+
+      <div className="scroll-note">
+        Scroll to explore <span>↓</span>
+      </div>
+    </section>
   );
 };
 

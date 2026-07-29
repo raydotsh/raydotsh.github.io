@@ -1,0 +1,31 @@
+.marquee {
+  background: var(--ink);
+  color: var(--paper);
+  height: 67px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+
+.marquee i {
+  color: var(--acid);
+  font-style: normal;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

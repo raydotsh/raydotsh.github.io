@@ -1,113 +1,142 @@
-#experience {
-  padding: 40px 0;
-  margin: auto;
-  max-width: 1000px;
+.services {
+  background: #201f1d;
+  color: #f4f0e8;
+  padding: 120px 7vw;
 }
 
-.joblist-job-title {
-  font-family: "NTR", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: var(--lightest-slate);
+.services-container {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 10vw;
 }
 
-.joblist-job-company {
-  font-family: "NTR", sans-serif;
-  font-size: 28px;
-  color: var(--blue-bright);
-  font-weight: bold;
+.services-intro {
+  position: sticky;
+  top: 110px;
+  height: max-content;
 }
 
-.joblist-duration {
-  font-family: "NTR", sans-serif;
-  font-size: 18px;
-  color: var(--slate);
+.services-intro .kicker {
+  color: var(--acid);
 }
 
-#vertical-tabpanel {
-  margin-top: -28px;
-  padding-left: 25px;
+.services-intro h2 {
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  letter-spacing: -0.06em;
+  margin-top: 20px;
+  color: #f4f0e8;
 }
 
-.MuiTab-wrapper {
+.services-intro p {
+  line-height: 1.65;
+  max-width: 450px;
+  color: #b8b5ae;
+  margin: 35px 0;
   font-size: 16px;
-  text-align: left;
-  align-items: flex-start !important;
-  font-family: "NTR", sans-serif;
 }
 
-.MuiButtonBase-root {
-  outline: none !important;
-  color: var(--lightest-slate) !important;
+.service-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.PrivateTabIndicator-colorSecondary-5 {
-  background-color: var(--blue-bright) !important;
-}
-.jss5 {
-  background-color: var(--blue-bright) !important;
-}
-.makeStyles-tabs-2 {
-  border-right: 1px solid var(--lightest-navy) !important;
-}
-#experience .MuiTab-root {
-  padding: 6px 20px;
-}
-.MuiButtonBase-root:focus {
-  color: var(--blue-bright) !important;
+.service-item {
+  display: grid;
+  grid-template-columns: 45px 1fr 30px;
+  gap: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 42px 0;
+  color: #f4f0e8;
 }
 
-ul {
-  list-style: none;
-  margin-left: -40px;
+.service-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-.job-description li::before {
-  content: "▹    ";
-  color: var(--blue-bright);
-  position: absolute;
-  left: 0;
+.service-item > span {
+  color: var(--acid);
+  font-size: 13px;
+  font-weight: 800;
+  font-family: var(--font-display);
 }
 
-.job-description li {
-  position: relative;
-  padding-left: 30px;
-  padding-bottom: 16px;
-  font-size: 18px;
-  color: var(--slate);
+.service-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-.job-description {
-  padding-top: 24px;
-  max-width: 650px;
-  font-family: "NTR", sans-serif;
-  font-size: 20px;
+.service-item h3 {
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 1.2;
 }
 
-.job-description a,
-.job-description b {
-  font-size: 19px;
-  font-weight: bold;
+.service-duration {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--acid);
+  text-transform: uppercase;
 }
 
-@media only screen and (max-width: 800px) {
-  #experience {
-    padding: 60px 0;
-    padding-left: unset;
-    padding-right: unset;
+.service-item p {
+  color: #aaa7a1;
+  line-height: 1.65;
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+
+.service-item > i {
+  font-size: 22px;
+  font-style: normal;
+  transition: transform 0.3s ease;
+  color: var(--acid);
+}
+
+.service-item:hover > i {
+  transform: rotate(45deg);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tags b {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 99px;
+  padding: 7px 14px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #e2dfd7;
+}
+
+@media (max-width: 900px) {
+  .services-container {
+    grid-template-columns: 1fr;
+    gap: 55px;
   }
 
-  .makeStyles-root-1 {
-    height: unset !important;
-    width: unset;
-    flex-direction: column;
+  .services-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-item {
+    grid-template-columns: 30px 1fr 20px;
   }
 
-  .joblist-job-title {
-    font-size: 22px;
-  }
-
-  .joblist-job-company {
+  .service-item h3 {
     font-size: 22px;
   }
 }

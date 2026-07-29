@@ -13,13 +13,13 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100vh;
-  font-family: "NTR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a192f;
-  color: #ccd6f6;
+  background-color: var(--body-bg);
+  color: var(--lightest-slate);
 }
 
 code {

@@ -15,10 +15,24 @@ import "./App.css";
 import "./styles/Global.css";
 import "./styles/RobotGame.css";
 
+import MarqueeTicker from "./components/MarqueeTicker";
+
 function App() {
   const { pathname } = useLocation();
   const [gameActive, setGameActive] = useState(false);
   const [showGameInfo, setShowGameInfo] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("portfolio-theme") || "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar theme={theme} toggleTheme={toggleTheme} />
       <div className="game-toggle-fixed">
         <div className="game-toggle-row">
           <button
@@ -75,6 +89,7 @@ function App() {
             element={
               <>
                 <Intro />
+                <MarqueeTicker />
                 <About />
                 <GrowthProof />
                 <Experience />

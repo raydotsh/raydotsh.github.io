@@ -1,174 +1,198 @@
-#about {
-  padding: 40px 0;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 40px;
-  align-items: flex-start;
-  margin-top: 30px;
-}
-
-.about-description {
-  color: var(--slate);
-  font-family: "NTR", sans-serif;
-  font-size: 19px;
-  line-height: 1.6;
-}
-
-.about-description p {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-.about-skills-box {
-  background-color: var(--light-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 8px;
-  padding: 20px 24px;
-  margin: 24px 0;
-}
-
-.skills-heading {
-  color: var(--lightest-slate);
-  font-size: 16px;
-  font-weight: bold;
+.about {
   display: block;
-  margin-bottom: 12px;
 }
 
-.tech-stack {
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.tech-stack li {
-  color: var(--slate);
-  font-size: 15px;
-  display: flex;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 10vw;
   align-items: center;
-  gap: 8px;
 }
 
-.skill-check-icon {
-  color: var(--blue-bright);
-}
-
-/* Profile Card Sidebar */
-.about-profile-card {
+.portrait {
   position: relative;
 }
 
-.profile-card-inner {
-  background-color: var(--light-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.profile-card-inner:hover {
-  border-color: var(--blue-bright);
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px -15px var(--navy-shadow);
-}
-
-.about-avatar-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--blue-bright);
-  margin-bottom: 16px;
-  background-color: var(--dark-navy);
-}
-
-.profile-name {
-  color: var(--white);
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-
-.profile-handle {
-  color: var(--blue-bright);
-  font-size: 14px;
-  font-family: monospace;
-  margin-bottom: 16px;
-}
-
-.profile-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  margin-bottom: 20px;
-  border-top: 1px solid var(--lightest-navy);
-  border-bottom: 1px solid var(--lightest-navy);
-  padding: 12px 0;
-}
-
-.meta-item {
-  color: var(--slate);
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.profile-stats-row {
+.portrait-scene {
+  height: 640px;
+  background: #f2a889;
+  position: relative;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  place-items: center;
+  border-radius: 20px;
 }
 
-.stat-pill {
-  background-color: var(--dark-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 6px;
-  padding: 8px 4px;
+[data-theme="dark"] .portrait-scene {
+  background: #2a2522;
+}
+
+.portrait-halo {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: #e5ff8c;
+  opacity: 0.8;
+}
+
+.portrait-img {
+  width: 280px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 4px solid var(--paper);
+}
+
+.portrait-bg-text {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 180px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.16);
+  bottom: -25px;
+  left: 5px;
+  pointer-events: none;
+}
+
+.portrait-sticker {
+  position: absolute;
+  background: var(--acid);
+  color: #191816;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  right: -30px;
+  bottom: 45px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  transform: rotate(9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 3;
 }
 
-.stat-num {
-  color: var(--white);
-  font-size: 15px;
-  font-weight: bold;
-  font-family: "NTR", sans-serif;
+.portrait-sticker small {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
 }
 
-.stat-lbl {
-  color: var(--slate);
-  font-size: 11px;
+.about-copy h2 {
+  font-size: clamp(3.4rem, 6.4vw, 6.7rem);
+  letter-spacing: -0.06em;
+  margin: 25px 0 30px;
 }
 
-@media only screen and (max-width: 850px) {
-  .about-content {
+.about-lede {
+  font-size: 21px !important;
+  color: var(--ink) !important;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.about-body {
+  max-width: 610px;
+  line-height: 1.7;
+  color: var(--ink);
+  opacity: 0.85;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.capabilities-tags {
+  margin: 30px 0;
+}
+
+.tags-label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-pill {
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="dark"] .tag-pill {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stats {
+  display: flex;
+  border-top: 1px solid var(--line);
+  margin-top: 45px;
+  padding-top: 30px;
+  gap: 9%;
+}
+
+.stats strong, .stats span {
+  display: block;
+}
+
+.stats strong {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.stats span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 50px;
   }
-  .about-profile-card {
-    max-width: 400px;
-    margin: 0 auto;
-    width: 100%;
+
+  .portrait {
+    max-width: 540px;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  #about {
-    padding: 60px 20px;
+@media (max-width: 560px) {
+  .portrait-scene {
+    height: 480px;
   }
-  .tech-stack {
-    grid-template-columns: 1fr;
+
+  .portrait-sticker {
+    right: -5px;
+  }
+
+  .stats {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .stats strong {
+    font-size: 24px;
   }
 }

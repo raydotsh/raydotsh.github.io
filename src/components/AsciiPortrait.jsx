@@ -114,7 +114,9 @@ const AsciiPortrait = () => {
 
     if (memoryCache[size]) {
       particlesRef.current = createParticlesFromRaw(memoryCache[size], isMobileSize);
-      setDataReady(true);
+      queueMicrotask(() => {
+        if (isSubscribed) setDataReady(true);
+      });
       startTimeRef.current = performance.now();
       return;
     }
@@ -254,8 +256,24 @@ const AsciiPortrait = () => {
         const jitterX = (Math.random() - 0.5) * 0.9;
         const jitterY = (Math.random() - 0.5) * 0.9;
 
-        ctx.fillStyle = `rgba(56, 189, 248, ${p.currentAlpha})`;
-        ctx.fillText(p.char, p.x + jitterX, p.y + jitterY);
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+
+        if (isLight) {
+          const darkness = Math.max(0, Math.min(1, (0.92 - p.baseAlpha) / 0.45));
+
+          if (darkness > 0.4) {
+            ctx.fillStyle = `rgba(15, 23, 42, ${Math.max(0.95, easedFade)})`;
+            const hairChar = darkness > 0.7 ? "@" : (darkness > 0.5 ? "%" : "#");
+            ctx.fillText(hairChar, p.x + jitterX, p.y + jitterY);
+          } else {
+            ctx.fillStyle = `rgba(2, 132, 199, ${Math.max(0.7, (1 - darkness) * easedFade)})`;
+            const accentChar = p.char === "@" || p.char === "%" || p.char === "#" ? "#" : p.char;
+            ctx.fillText(accentChar, p.x + jitterX, p.y + jitterY);
+          }
+        } else {
+          ctx.fillStyle = `rgba(56, 189, 248, ${p.currentAlpha})`;
+          ctx.fillText(p.char, p.x + jitterX, p.y + jitterY);
+        }
       });
     };
 

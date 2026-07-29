@@ -1,138 +1,134 @@
-#contact {
-  padding: 40px 0 20px 0;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.contact-card {
-  background-color: var(--light-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 12px;
-  padding: 48px 36px;
-  text-align: center;
-  margin-bottom: 60px;
+.contact {
+  min-height: 80vh;
+  background: var(--acid);
+  color: #191816;
   position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
   overflow: hidden;
-  box-shadow: 0 15px 35px -15px var(--navy-shadow);
 }
 
-.contact-tag {
-  color: var(--blue-bright);
-  font-family: monospace;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: block;
-  margin-bottom: 12px;
+#contact-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.contact-heading {
-  color: var(--white);
-  font-size: 36px;
-  font-family: "NTR", sans-serif;
-  margin: 0 0 16px 0;
-  font-weight: bold;
+.contact-inner {
+  z-index: 2;
+  padding: 100px 25px;
+  max-width: 950px;
 }
 
-.contact-subtext {
-  color: var(--slate);
-  font-size: 18px;
-  max-width: 650px;
-  margin: 0 auto 32px auto;
-  line-height: 1.5;
+.contact-inner .kicker {
+  color: #191816;
+  opacity: 0.85;
 }
 
-.contact-email-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  background-color: var(--dark-navy);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 30px;
-  padding: 8px 12px 8px 24px;
-  margin-bottom: 32px;
+.contact h2 {
+  font-size: clamp(3.5rem, 7vw, 7.8rem);
+  letter-spacing: -0.065em;
+  margin: 32px 0 45px;
+  color: #191816;
 }
 
-.contact-email-text {
-  color: var(--blue-bright);
-  font-family: "NTR", monospace, sans-serif;
-  font-size: 18px;
-}
-
-.copy-email-btn {
-  background-color: var(--light-navy);
-  border: 1px solid var(--blue-bright);
-  color: var(--blue-bright);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.copy-email-btn:hover {
-  background-color: var(--blue-bright);
-  color: var(--navy);
-}
-
-.contact-socials-row {
+.contact-action-box {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
 }
 
-.contact-social-link {
-  color: var(--light-slate);
-  background-color: rgba(35, 53, 84, 0.4);
-  border: 1px solid var(--lightest-navy);
-  padding: 8px 18px;
-  border-radius: 6px;
-  text-decoration: none;
+.pill-light {
+  padding: 20px 32px;
+  background: var(--paper);
+  color: #191816;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+}
+
+.copy-pill-btn {
+  background: #191816;
+  color: #ffffff;
+  border: none;
+  padding: 18px 26px;
+  border-radius: 999px;
+  font-weight: 700;
   font-size: 14px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s ease;
+  transition: transform 0.25s, background-color 0.25s;
 }
 
-.contact-social-link:hover {
-  color: var(--blue-bright);
-  border-color: var(--blue-bright);
-  transform: translateY(-2px);
+.copy-pill-btn:hover {
+  transform: translateY(-3px);
+  background: #000000;
 }
 
-#credits {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid var(--lightest-navy);
+.location-text {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  margin-top: 42px;
+  font-weight: 700;
+  color: #191816;
+  opacity: 0.8;
 }
 
-.ending-credits {
-  color: var(--slate);
-  font-family: "NTR", sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 32px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  border-top: 1px solid var(--line);
 }
 
-@media only screen and (max-width: 768px) {
-  .contact-card {
-    padding: 32px 20px;
-  }
-  .contact-heading {
-    font-size: 28px;
-  }
-  .contact-subtext {
-    font-size: 16px;
-  }
-  .contact-email-box {
+.site-footer .brand {
+  color: var(--paper);
+}
+
+.site-footer .brand-mark {
+  border-color: var(--paper);
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+  font-weight: 600;
+}
+
+.footer-links a {
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.copyright-text {
+  margin: 0;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
     flex-direction: column;
-    width: 100%;
-    border-radius: 12px;
-    padding: 16px;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 16px;
   }
 }

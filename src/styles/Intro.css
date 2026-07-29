@@ -1,207 +1,163 @@
-#intro {
+.hero {
+  min-height: 100svh;
+  position: relative;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  padding: 120px 7vw 80px;
+  overflow: hidden;
+  background: linear-gradient(125deg, #f5efe5 0%, #eee9fb 55%, #d9ff72 140%);
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(125deg, #1c1a17 0%, #171524 55%, #2a3809 140%);
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-height: 75vh;
-  padding: 0 5vw;
-  box-sizing: border-box;
-  gap: 4vw;
-  padding-top: 60px;
+  height: 100%;
+  pointer-events: none;
 }
 
-.intro-simulation {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.25));
-  transition: filter 0.3s ease;
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
 }
 
-.intro-simulation:hover {
-  filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.45));
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
 }
 
-.intro-block {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  max-width: 580px;
+.hero .eyebrow {
+  margin-bottom: 24px;
 }
 
-[class*="type-animation-cursor"] {
-  display: none !important;
+.hero h1 {
+  font-size: clamp(4rem, 8.5vw, 8.5rem);
+  letter-spacing: -0.065em;
+  margin: 28px 0 34px;
+  color: var(--ink);
 }
 
-.intro-title {
-  font-family: "NTR", sans-serif;
-  font-size: 72px;
-  color: var(--lightest-slate);
-  line-height: 1.1;
-}
-
-.intro-cursor {
-  color: var(--blue-bright);
-  font-weight: 300;
+.hero .script-accent {
   display: inline-block;
-  animation: blink 1s step-end infinite;
-  margin-left: 4px;
+  color: var(--ink);
 }
 
-@keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
+.hero-lede {
+  max-width: 610px;
+  font-size: clamp(1rem, 1.45vw, 1.28rem);
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.9;
 }
 
-.intro-name {
-  font-family: "NTR", sans-serif;
-  color: var(--blue-bright);
-  font-weight: bold;
-  font-size: 72px;
-}
-
-.intro-badge-row {
+.hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-  margin-bottom: 8px;
-}
-
-.tech-tag {
-  background-color: var(--light-navy);
-  border: 1px solid var(--lightest-navy);
-  color: var(--blue-bright);
-  font-size: 13px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: monospace;
+  gap: 35px;
+  margin-top: 38px;
 }
 
-.intro-desc {
-  color: var(--slate);
-  font-family: "NTR", sans-serif;
-  font-size: 20px;
-  text-align: left;
-  max-width: 100%;
-  padding-top: 12px;
-  padding-bottom: 28px;
-  line-height: 1.55;
-}
-
-.intro-cta-group {
+.hero-proof {
+  position: absolute;
+  right: 5vw;
+  bottom: 55px;
   display: flex;
+  align-items: center;
   gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
+  z-index: 3;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink);
 }
 
-.intro-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: "NTR", sans-serif;
-  padding: 12px 28px;
-  cursor: pointer;
-  background-color: transparent;
-  color: var(--blue-bright);
-  border: 1px solid var(--blue-bright);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+.avatar-stack {
+  display: flex;
 }
 
-.intro-contact:hover {
-  background-color: var(--blue-tint);
-  transform: translateY(-3px);
-  color: var(--blue-bright);
-  outline: none;
+.avatar {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  font-weight: 800;
+  border: 2px solid var(--paper);
+  margin-left: -9px;
+  color: #191816;
 }
 
-.intro-secondary-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "NTR", sans-serif;
-  padding: 12px 24px;
-  cursor: pointer;
-  background-color: var(--light-navy);
-  color: var(--lightest-slate);
-  border: 1px solid var(--lightest-navy);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+.avatar:first-child {
+  margin-left: 0;
 }
 
-.intro-secondary-btn:hover {
-  background-color: var(--lightest-navy);
-  color: var(--white);
-  transform: translateY(-3px);
+.avatar-a {
+  background: #ff9c70;
 }
 
-@media only screen and (max-width: 1024px) {
-  #intro {
-    gap: 3vw;
+.avatar-b {
+  background: #9b8ef2;
+}
+
+.avatar-c {
+  background: #aad75d;
+}
+
+.scroll-note {
+  position: absolute;
+  left: 4.5vw;
+  bottom: 50px;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  z-index: 3;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.scroll-note span {
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-left: 8vw;
   }
-  .intro-title,
-  .intro-name {
-    font-size: 60px;
+
+  .hero-proof {
+    display: none;
+  }
+
+  .scroll-note {
+    display: none;
   }
 }
 
-@media only screen and (max-width: 768px) {
-  #intro {
+@media (max-width: 560px) {
+  .hero {
+    min-height: 860px;
+    padding-top: 100px;
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 16vw;
+    margin-top: 45px;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 24px;
     gap: 24px;
-    text-align: center;
-  }
-  .intro-simulation {
-    display: flex;
-  }
-  .intro-block {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  .intro-title,
-  .intro-name {
-    font-size: 48px;
-  }
-  .intro-desc {
-    text-align: center;
-    font-size: 17px;
-  }
-  .intro-cta-group {
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .intro-title,
-  .intro-name {
-    font-size: 38px;
-  }
-  .intro-desc {
-    font-size: 15px;
-  }
-  .intro-contact,
-  .intro-secondary-btn {
-    font-size: 14px;
-    padding: 10px 20px;
-    width: 100%;
-    justify-content: center;
   }
 }

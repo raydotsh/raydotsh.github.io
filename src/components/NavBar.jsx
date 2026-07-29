@@ -1,75 +1,72 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import XIcon from "@mui/icons-material/X";
+import React, { useState } from "react";
 import "../styles/NavBar.css";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import ModeNightOutlinedIcon from "@mui/icons-material/ModeNightOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
-const NavBar = () => {
-  const [expanded, setExpanded] = useState(false);
-  const scrollPos = useRef(0);
-
-  useEffect(() => {
-    if (expanded) {
-      scrollPos.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollPos.current}px`;
-      document.body.style.width = "100%";
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
-    }
-  }, [expanded]);
+const NavBar = ({ theme, toggleTheme }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <Navbar
-      fixed="top"
-      expand="lg"
-      className="navbar"
-      data-bs-theme="dark"
-      expanded={expanded}
-      onToggle={(isExpanded) => setExpanded(isExpanded)}
-    >
-      <Container>
-        <Navbar.Brand href="/">Rehana Rahman</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="/#intro">Home</Nav.Link>
-            <Nav.Link href="/#about">About</Nav.Link>
-            <Nav.Link href="/#growth">Proof</Nav.Link>
-            <Nav.Link href="/#experience">Experience</Nav.Link>
-            <Nav.Link href="/#projects">Software</Nav.Link>
-            <Nav.Link href="/#books">Books</Nav.Link>
-            <Nav.Link href="/#contact">Contact</Nav.Link>
-          </Nav>
-          <Nav className="ms-auto" onSelect={() => setExpanded(false)}>
-            <Nav.Link href="mailto:rehanarahman004@gmail.com" title="Email Rehana">
-              <EmailRoundedIcon style={{ fontSize: 20 }} />
-            </Nav.Link>
-            <Nav.Link href="https://x.com/raydotsh" target="_blank" title="X Profile">
-              <XIcon style={{ fontSize: 18 }} />
-            </Nav.Link>
-            <Nav.Link href="https://github.com/raydotsh" target="_blank" title="GitHub Profile">
-              <GitHubIcon style={{ fontSize: 19 }} />
-            </Nav.Link>
-            <Nav.Link
-              href="https://www.linkedin.com/in/rehana-rahman/"
-              target="_blank"
-              title="LinkedIn Profile"
-            >
-              <LinkedInIcon style={{ fontSize: 21 }} />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <header className="site-header">
+      <a className="brand" href="#top" aria-label="Rehana Rahman home">
+        <span className="brand-mark">RR</span>
+        <span>Rehana Rahman</span>
+      </a>
+
+      <nav className="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#growth">Growth & Proof</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#books">Books</a>
+      </nav>
+
+      <div className="nav-actions">
+        <button
+          className="theme-toggle-btn"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {theme === "dark" ? (
+            <WbSunnyOutlinedIcon sx={{ fontSize: 18 }} />
+          ) : (
+            <ModeNightOutlinedIcon sx={{ fontSize: 18 }} />
+          )}
+        </button>
+
+        <a className="pill pill-small desktop-cta" href="mailto:rehanarahman004@gmail.com">
+          Let’s work together <span>↗</span>
+        </a>
+
+        <button
+          className="mobile-hamburger-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
+      </div>
+
+      {mobileMenuOpen && (
+        <div className="mobile-nav-dropdown">
+          <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+          <a href="#growth" onClick={() => setMobileMenuOpen(false)}>Growth & Proof</a>
+          <a href="#experience" onClick={() => setMobileMenuOpen(false)}>Experience</a>
+          <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+          <a href="#books" onClick={() => setMobileMenuOpen(false)}>Books</a>
+          <a
+            className="pill pill-dark"
+            href="mailto:rehanarahman004@gmail.com"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Let’s work together <span>↗</span>
+          </a>
+        </div>
+      )}
+    </header>
   );
 };
 
