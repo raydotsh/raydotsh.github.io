@@ -282,11 +282,11 @@
 /* Responsive Media Queries */
 @media (max-width: 900px) {
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
 
   .desktop-cta {
-    display: none;
+    display: none !important;
   }
 
   .mobile-hamburger-btn {
