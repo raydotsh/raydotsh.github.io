@@ -101,14 +101,18 @@ const ThreeRingCanvas = () => {
       if (reqId) cancelAnimationFrame(reqId);
       window.removeEventListener("mousemove", () => {});
       window.removeEventListener("resize", () => {});
-      if (renderer) {
-        try {
+      try {
+        if (ringGeometry) ringGeometry.dispose();
+        if (ringMaterial) ringMaterial.dispose();
+        if (scene) scene.clear();
+        if (renderer) {
           if (container && renderer.domElement && container.contains(renderer.domElement)) {
             container.removeChild(renderer.domElement);
           }
           renderer.dispose();
-        } catch (e) {}
-      }
+          if (renderer.forceContextLoss) renderer.forceContextLoss();
+        }
+      } catch (e) {}
     };
   }, []);
 

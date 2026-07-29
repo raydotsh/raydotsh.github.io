@@ -162,11 +162,20 @@ const HeroCanvas = () => {
       cancelAnimationFrame(reqId);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
-      if (renderer) {
-        try {
+      try {
+        group.children.forEach((child) => {
+          if (child.material) {
+            if (child.material.map) child.material.map.dispose();
+            child.material.dispose();
+          }
+          if (child.geometry) child.geometry.dispose();
+        });
+        scene.clear();
+        if (renderer) {
           renderer.dispose();
-        } catch (e) {}
-      }
+          if (renderer.forceContextLoss) renderer.forceContextLoss();
+        }
+      } catch (e) {}
     };
   }, []);
 
